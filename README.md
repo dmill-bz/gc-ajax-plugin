@@ -54,7 +54,7 @@ In the examples above the console will send `POST` requests to `http://localhost
 
 In return the console expects to receive a `gremlin-server` response (`GraphSON` format) as a string (full result, no streaming supported at the moment).
 
-**Note**: It may be required for you to set the following header: `Access-Control-Allow-Origin: *`.
+**Note**: It may be required for you to set the following header for your response: `Access-Control-Allow-Origin: *`.
 
 ## Advanced
 
