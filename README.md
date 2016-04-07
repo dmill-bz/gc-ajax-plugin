@@ -58,4 +58,4 @@ In return the console expects to receive a `gremlin-server` response (`GraphSON`
 
 ## Advanced
 
-You can use this pluin along side other plugins (such as the text output plugin). Just be weary of the registration order. You'll want to register this plugin before the others
+You can use this plugin along side other plugins (such as the text output plugin). Just be wary of the registration order. You'll want to register this plugin before the others
