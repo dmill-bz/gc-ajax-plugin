@@ -69,6 +69,14 @@ describe('GraphSONTextClient', () => {
             });
         });
 
+        it('should throw a catchable error', (done) => {
+            const client = new Client("http://nohost", 9999, {path:"/fiveplusfive"});
+            client.onError((err)=>{
+                done();
+            });
+            client.execute("5+5", (result) => {});
+        });
+
         it('should return the right data with bindings', (done) => {
             const client = new Client("http://localhost", 9999, {path:"/fiveplusfive"});
             client.execute("5+variable", {variable:5}, (result) => {
