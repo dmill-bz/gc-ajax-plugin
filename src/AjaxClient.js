@@ -40,7 +40,9 @@ class AjaxClient {
             type: "POST",
             dataType: "text",
             url: host + ':' + port + '/' + path.replace(/^(\/)/,""),
-            data: {},
+            data: {
+                session: this._createUUID()
+            },
             error: (err)=>{console.log(err)},
             ...options
         };
@@ -85,6 +87,34 @@ class AjaxClient {
             callback({status: s, message: e});
         };
         this._options.error = customCallback;
+    }
+
+    /**
+     * Register a callback on open
+     *
+     * @param  {Function} callback the method to run on client error.
+     * @return {Void}
+     */
+    onOpen(callback) {
+        callback();
+    }
+
+    /**
+     * Generates a UUID
+     *
+     * return {String} the UUID for this client
+     */
+    _createUUID() {
+        let d = new Date().getTime();
+        if(window.performance && typeof window.performance.now === "function"){
+            d += performance.now(); //use high-precision timer if available
+        }
+        const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (d + Math.random()*16)%16 | 0;
+            d = Math.floor(d/16);
+            return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+        });
+        return uuid;
     }
 }
 

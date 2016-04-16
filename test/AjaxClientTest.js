@@ -11,7 +11,8 @@ describe('GraphSONTextClient', () => {
             client._options.url.should.equal("localhost:8182/");
             client._options.type.should.equal("POST");
             client._options.dataType.should.equal("text");
-            expect(client._options.data).to.eql({});
+            client._options.data.session.should.be.a('String');
+
         });
 
         it('should allow setting the `port` option', () => {

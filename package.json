@@ -23,7 +23,7 @@
     "babel-preset-stage-2": "~6.5.0",
     "babel-register": "~6.7.2",
     "gremlin": "jbmusso/gremlin-javascript",
-    "gremlin-console": "^0.9.7",
+    "gremlin-console": "^0.9.9",
     "highland": "^2.7.3",
     "jquery": "~2.2.1"
   },
